@@ -1,13 +1,7 @@
-LastPass Python API
+LastPass Python API (adapted for iOS - Pythonista)
 ===================
 
-.. image:: https://travis-ci.org/konomae/lastpass-python.png?branch=master
-  :target: https://travis-ci.org/konomae/lastpass-python
-
-.. image:: https://coveralls.io/repos/konomae/lastpass-python/badge.png?branch=master
-  :target: https://coveralls.io/r/konomae/lastpass-python?branch=master
-
-:Original: `lastpass-ruby <https://github.com/detunized/lastpass-ruby>`_
+:Original: `lastpass-python <https://github.com/konomae/lastpass-python>`_
 
 **This is unofficial LastPass API**
 
