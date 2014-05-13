@@ -1,4 +1,4 @@
-LastPass Python API (adapted for iOS - Pythonista)
+LastPass Python API (adapted for iOS - `Pythonista <https://itunes.apple.com/us/app/pythonista/id528579881>`)
 ===================
 
 :Original: `lastpass-python <https://github.com/konomae/lastpass-python>`_
