@@ -29,9 +29,9 @@ from Crypto.Hash import SHA256
 
 class Fetcher(object):
     @classmethod
-    def login(cls, username, password, multifactor_password=None):
+    def login(cls, username, password, multifactor_password=None, trusted_device=None):
         key_iteration_count = cls.request_iteration_count(username)
-        return cls.request_login(username, password, key_iteration_count, multifactor_password)
+        return cls.request_login(username, password, key_iteration_count, multifactor_password, trusted_device)
 
     @classmethod
     def fetch(cls, session, web_client=requests):
@@ -60,7 +60,7 @@ class Fetcher(object):
         raise InvalidResponseError('Key iteration count is not positive')
 
     @classmethod
-    def request_login(cls, username, password, key_iteration_count, multifactor_password=None, web_client=requests):
+    def request_login(cls, username, password, key_iteration_count, multifactor_password=None,  trusted_device=None, web_client=requests):
         body = {
             'method': 'mobile',
             'web': 1,
@@ -72,6 +72,9 @@ class Fetcher(object):
 
         if multifactor_password:
             body['otp'] = multifactor_password
+
+        if trusted_device:
+            body['uuid'] = trusted_device
 
         response = web_client.post('https://lastpass.com/login.php',
                                    data=body)
