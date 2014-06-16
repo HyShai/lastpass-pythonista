@@ -75,6 +75,8 @@ class Fetcher(object):
 
         if trusted_device:
             body['uuid'] = trusted_device
+            body['trustlabel'] = 'PythonistaLP - %s' % trusted_device
+
 
         response = web_client.post('https://lastpass.com/login.php',
                                    data=body)
