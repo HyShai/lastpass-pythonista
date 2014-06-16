@@ -5,8 +5,8 @@ from lastpass import Parser, Fetcher
 class Vault(object):
     # Fetches a blob from the server and creates a vault
     @classmethod
-    def open_remote(cls, username, password, multifactor_password=None):
-        return cls.open(cls.fetch_blob(username, password, multifactor_password), username, password)
+    def open_remote(cls, username, password, multifactor_password=None, trusted_device=None):
+        return cls.open(cls.fetch_blob(username, password, multifactor_password, trusted_device), username, password)
 
     # Creates a vault from a locally stored blob
     @classmethod
