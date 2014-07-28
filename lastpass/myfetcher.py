@@ -1,15 +1,20 @@
 # coding: utf-8
+
+# Modified fetcher.py from lastpass-python to work with pbkdf2 1.3 instead of simple-pbkdf2 (in order to make it work in Pythonista)
+
+# Original: https://github.com/konomae/lastpass-python/blob/master/lastpass/fetcher.py
+
+# To use with pbkdf2 module from here: https://pypi.python.org/pypi/pbkdf2
+
+import httplib
+import pbkdf2
 import hashlib
-from base64 import b64decode
-from binascii import hexlify
-from Crypto.Hash import HMAC, SHA256
-from Crypto.Protocol.KDF import PBKDF2
 import requests
 import uuid
 
 from xml.etree import ElementTree as etree
-from . import blob
-from .exceptions import (
+from lastpass.blob import Blob
+from lastpass.exceptions import (
     NetworkError,
     InvalidResponseError,
     UnknownResponseSchemaError,
@@ -19,8 +24,9 @@ from .exceptions import (
     LastPassIncorrectYubikeyPasswordError,
     LastPassUnknownError
 )
-from .session import Session
+from lastpass.session import Session
 
+from Crypto.Hash import SHA256
 
 class Fetcher(object):
     @classmethod
@@ -33,16 +39,16 @@ class Fetcher(object):
         response = web_client.get('https://lastpass.com/getaccts.php?mobile=1&b64=1&hash=0.0',
                                   cookies={'PHPSESSID': session.id})
 
-        if response.status_code != requests.codes.ok:
+        if response.status_code != httplib.OK:
             raise NetworkError()
 
-        return blob.Blob(cls.decode_blob(response.content), session.key_iteration_count)
+        return Blob(cls.decode_blob(response.content), session.key_iteration_count)
 
     @classmethod
     def request_iteration_count(cls, username, web_client=requests):
         response = web_client.post('https://lastpass.com/iterations.php',
                                    data={'email': username})
-        if response.status_code != requests.codes.ok:
+        if response.status_code != httplib.OK:
             raise NetworkError()
 
         try:
@@ -64,7 +70,7 @@ class Fetcher(object):
             'hash': cls.make_hash(username, password, key_iteration_count),
             'iterations': key_iteration_count,
         }
-
+        
         if multifactor_password:
             body['otp'] = multifactor_password
 
@@ -76,7 +82,7 @@ class Fetcher(object):
         response = web_client.post('https://lastpass.com/login.php',
                                    data=body)
 
-        if response.status_code != requests.codes.ok:
+        if response.status_code != httplib.OK:
             raise NetworkError()
 
         try:
@@ -96,7 +102,7 @@ class Fetcher(object):
     def create_session(cls, parsed_response, key_iteration_count):
         if parsed_response.tag == 'ok':
             session_id = parsed_response.attrib.get('sessionid')
-            if isinstance(session_id, str):
+            if isinstance(session_id, basestring):
                 return Session(session_id, key_iteration_count)
 
     @classmethod
@@ -122,26 +128,21 @@ class Fetcher(object):
 
     @classmethod
     def decode_blob(cls, blob):
-        return b64decode(blob)
+        return blob.decode('base64')
 
     @classmethod
     def make_key(cls, username, password, key_iteration_count):
         if key_iteration_count == 1:
-            return hashlib.sha256(username.encode() + password.encode()).digest()
+            return hashlib.sha256(username + password).digest()
         else:
-            prf = lambda p, s: HMAC.new(p, s, SHA256).digest()
-            return PBKDF2(password.encode(), username.encode(), 32, key_iteration_count, prf)
+            p = pbkdf2.PBKDF2(password, username, iterations=key_iteration_count, digestmodule=SHA256)
+            return p.read(32)
 
     @classmethod
     def make_hash(cls, username, password, key_iteration_count):
         if key_iteration_count == 1:
-            return bytearray(hashlib.sha256(hexlify(cls.make_key(username, password, 1)) + password.encode()).hexdigest(), 'ascii')
+            return hashlib.sha256(cls.make_key(username, password, 1).encode('hex') + password).hexdigest()
         else:
-            prf = lambda p, s: HMAC.new(p, s, SHA256).digest()
-            return hexlify(PBKDF2(
-                cls.make_key(username, password, key_iteration_count),
-                password.encode(),
-                32,
-                1,
-                prf))
-
+            key = cls.make_key(username, password, key_iteration_count)
+            p = pbkdf2.PBKDF2(key, password, iterations=1, digestmodule=SHA256)
+            return p.read(32).encode('hex')
