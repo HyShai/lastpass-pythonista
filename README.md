@@ -20,9 +20,9 @@ Or
 ### Usage:
 
 1. Import your accounts by running `lpimport_api.py`
-2. To use it in an x-callback-url manner call `lpfinder.py` which takes 2 arguments - `account_name` and `redirect_url`
-3. Tap the account that you want the password for
-4. The password will be copied to the clipboard and you will be redirected to the url/app that was passed in
+2. To use it in an x-callback-url manner run `lpfinder.py` which takes 2 arguments - `account_name` and `redirect_url`
+3. Tap the account for which you want the password 
+4. The password will be copied to the clipboard and you will be redirected to the url/app that you passed in
 4. Use `lpimport_api.py` to manually update your accounts (read-only)
 
 An example LaunchCenterPro action is here: https://launchcenterpro.com/fm4lxb
