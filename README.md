@@ -12,7 +12,7 @@ Uses Pythonista to allow for pseudo x-callback-url functionality for LastPass. I
 
 ### Installation:
 
-* Download the zip of this repo and sync it to Dropbox. Download it to Pythonista using [DropboxFilePicker][] or [DropboxSync][].
+* Download the zip of this repo, unzip it and sync to Dropbox. Download it to Pythonista using [DropboxFilePicker][] or [DropboxSync][].
 
 Or
 * `git clone https://github.com/HyShai/lastpass-pythonista.git` directly into Pythonista using [Shellista][]
