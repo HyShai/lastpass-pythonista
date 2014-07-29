@@ -8,7 +8,7 @@ Uses Pythonista to allow for pseudo x-callback-url functionality for LastPass. I
 
 **Note:** This only does a one-way read-only sync from LastPass - if you want to manipulate your vault in any way (delete/edit) you must still use the [LastPass iOS app][] (requires a LastPass Premium subscription - $12/yr).
 
-**Note:** It stores your accounts in the iOS keychain (*not* the iCloud keychain). Although the keychain is encrypted, there may be ways to access it from other apps. Please weigh your risks before using this.
+**Note:** It stores your accounts in the iOS keychain (*not* the iCloud keychain). Although the keychain is encrypted, there may be ways to access it from other apps. Please weigh the risks before using this.
 
 ### Installation:
 
