@@ -2,7 +2,7 @@
 # 1) the name of the account
 # 2) the url to be redirected to
 # best if used with Launch Center Pro
-# https://launchcenterpro.com/fm4lxb
+# https://launchcenterpro.com/q9qmfg 
 
 from sys import argv
 import keychain

@@ -25,7 +25,7 @@ Or
 4. The password will be copied to the clipboard and you will be redirected to the url/app that you passed in
 4. Use `lpimport_api.py` to manually update your accounts (read-only)
 
-An example LaunchCenterPro action is here: https://launchcenterpro.com/fm4lxb
+An example LaunchCenterPro action is here: https://launchcenterpro.com/q9qmfg 
 (this assumes `lpfinder.py` is in your root folder)
 
 Example
