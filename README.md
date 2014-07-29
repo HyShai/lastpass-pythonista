@@ -39,6 +39,10 @@ Credits
 =======
 Credit for the reverse engineered LastPass API goes to [konomae][] who did 99.9% of the work on coding the Python version.
 
+Credit for the adaption of PBKDF to use pbkdf2 instead of simple-pbkdf2 goes to [Ole Moritz][] (and without whom we wouldn't have the awesome Pythonista ;) )
+
+Credit for pbkdf2.py goes to [Dwayne C. Litzenberger][]
+
 License
 =======
 
@@ -53,3 +57,5 @@ License
   [DropboxSync]:https://gist.github.com/sidewinder42/8631794
   [Shellista]:https://github.com/transistor1/shellista
   [konomae]:https://github.com/konomae
+  [Ole Moritz]:https://github.com/omz
+  [Dwayne C. Litzenberger]:https://github.com/dlitz/python-pbkdf2
