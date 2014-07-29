@@ -26,7 +26,6 @@ Or
 4. Use `lpimport_api.py` to manually update your accounts (read-only)
 
 An example LaunchCenterPro action is here: https://launchcenterpro.com/q9qmfg 
-(this assumes `lpfinder.py` is in your root folder)
 
 Example
 =======
