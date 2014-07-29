@@ -2,7 +2,7 @@
 # 1) the name of the account
 # 2) the url to be redirected to
 # best if used with Launch Center Pro
-# (TODO url of LCP action)
+# https://launchcenterpro.com/fm4lxb
 
 from sys import argv
 import keychain

@@ -14,11 +14,11 @@ import clipboard
 def xstr(s):
     return '' if s is None else str(s)
 
-email = keychain.get_password('lastpass_email', 'lastpass')
+email = xstr(keychain.get_password('lastpass_email', 'lastpass'))
 
-password = keychain.get_password('lastpass_master', 'lastpass')
+password = xstr(keychain.get_password('lastpass_master', 'lastpass'))
 
-email,password = console.login_alert('LastPass login', '', xstr(email), xstr(password))
+email,password = console.login_alert('LastPass login', '', email, password)
 
 device = keychain.get_password('lastpass_uuid', 'lastpass')
 

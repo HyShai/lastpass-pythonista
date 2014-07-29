@@ -4,7 +4,7 @@ LastPass Pythonista
 Original: [lastpass-python][] (adapted for iOS - [Pythonista][])
 
 
-Uses Pythonista to allow for pseudo x-callback-url functionality for LastPass. It downloads your LastPass vault and stores it in the iOS keychain. You can then use Pythonista's powerful scripting coupled with an app such as [Launch Center Pro][] to make the LastPass iOS experience much more bearable. See example below.
+Uses Pythonista to allow for pseudo x-callback-url functionality for LastPass. It downloads your LastPass vault and stores it in the iOS keychain. You can then use Pythonista's powerful scripting coupled with an app such as [Launch Center Pro][] to make the LastPass iOS experience much more bearable.
 
 **Note:** This only does a one-way read-only sync from LastPass - if you want to manipulate your vault in any way (delete/edit) you must still use the [LastPass iOS app][] (requires a LastPass Premium subscription - $12/yr).
 
@@ -21,7 +21,9 @@ Or
 
 1. Import your accounts by running `lpimport_api.py`
 2. To use it in an x-callback-url manner call `lpfinder.py` which takes 2 arguments - `account_name` and `redirect_url`
-3. Use `lpimport_api.py` to manually update your accounts (read-only)
+3. Tap the account that you want the password for
+4. The password will be copied to the clipboard and you will be redirected to the url/app that was passed in
+4. Use `lpimport_api.py` to manually update your accounts (read-only)
 
 An example LaunchCenterPro action is here: https://launchcenterpro.com/fm4lxb
 
@@ -31,11 +33,7 @@ Example
 [![LP Example](http://img.youtube.com/vi/8WmbEWjLWbY/0.jpg)](https://www.youtube.com/watch?v=8WmbEWjLWbY)
 
 ```python
-import lastpass
 
-vault = lastpass.Vault.open_remote(username, password)
-for i in vault.accounts:
-    print(i.id, i.username, i.password, i.url)
 ```
 Credits
 =======
