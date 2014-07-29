@@ -2,7 +2,7 @@
 # from my understanding - although the keychain is encrypted
 # it is not 100% secure
 # so use with caution
-# at a minimum you should `keychain.set_master_password()`
+# at a minimum you probably should `keychain.set_master_password()`
 
 import lastpass
 import keychain
