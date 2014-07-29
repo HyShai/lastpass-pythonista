@@ -28,7 +28,7 @@ An example LaunchCenterPro action is here: https://launchcenterpro.com/fm4lxb
 Example
 =======
 
-![LP Example](https://dl.dropboxusercontent.com/u/15694301/lppy.gif)
+[![LP Example](http://img.youtube.com/vi/8WmbEWjLWbY/0.jpg)](https://www.youtube.com/watch?v=8WmbEWjLWbY)
 
 ```python
 import lastpass
