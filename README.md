@@ -15,7 +15,7 @@ Uses Pythonista to allow for pseudo x-callback-url functionality for LastPass. I
 * Download the zip of this repo and sync it to Dropbox. Download it to Pythonista using [DropboxFilePicker][] or [DropboxSync][].
 
 Or
-* `git clone` the repo directly into Pythonista using [Shellista][]
+* `git clone https://github.com/HyShai/lastpass-pythonista.git` the repo directly into Pythonista using [Shellista][]
 
 ### Usage:
 
