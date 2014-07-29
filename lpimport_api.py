@@ -39,4 +39,7 @@ except lastpass.LastPassIncorrectGoogleAuthenticatorCodeError as e:
     vault = lastpass.Vault.open_remote(email, password, googleauth, device)
 
 for i in vault.accounts:
+    print 'Importing {} - {}'.format(i.name, i.username)
     keychain.set_password(i.name, i.username, i.password)
+
+print 'Import done'
