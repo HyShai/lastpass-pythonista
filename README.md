@@ -30,7 +30,7 @@ An example LaunchCenterPro action is here: https://launchcenterpro.com/q9qmfg
 Example
 =======
 
-[![LP Example](http://img.youtube.com/vi/8WmbEWjLWbY/0.jpg)](https://www.youtube.com/watch?v=8WmbEWjLWbY)
+<a href="https://www.youtube.com/watch?v=8WmbEWjLWbY" target="_blank"><img src="http://img.youtube.com/vi/8WmbEWjLWbY/0.jpg" alt="LP Example"></a>
 
 ```python
 
