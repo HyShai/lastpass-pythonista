@@ -3,6 +3,7 @@ LastPass Pythonista
 
 Original: [lastpass-python][] (adapted for iOS - [Pythonista][])
 
+**This uses an unoficial LastPass API**
 
 Uses Pythonista to allow for pseudo x-callback-url functionality for LastPass. It downloads your LastPass vault and stores it in [Pythonista's keychain][]. You can then use Pythonista's powerful scripting coupled with an app such as [Launch Center Pro][] to make the LastPass iOS experience much more bearable.
 
@@ -25,7 +26,7 @@ Or
 4. The password will be copied to the clipboard and you will be redirected to the url/app that you passed in
 4. Use `lpimport_api.py` to manually update your accounts (read-only)
 
-An example LaunchCenterPro action is here: https://launchcenterpro.com/q9qmfg 
+An example Launch Center Pro action is here: https://launchcenterpro.com/q9qmfg 
 
 Example
 =======
