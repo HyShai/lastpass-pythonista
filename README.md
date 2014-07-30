@@ -6,7 +6,7 @@ Original: [lastpass-python][] (adapted for iOS - [Pythonista][])
 
 Uses Pythonista to allow for pseudo x-callback-url functionality for LastPass. It downloads your LastPass vault and stores it in [Pythonista's keychain][]. You can then use Pythonista's powerful scripting coupled with an app such as [Launch Center Pro][] to make the LastPass iOS experience much more bearable.
 
-**Note:** This does a one-way read-only sync from LastPass using an __unoficial__ LastPass API - if you want to manipulate your vault in any way (delete/edit) you must use the [LastPass iOS app][] (requires a LastPass Premium subscription - $12/yr).
+**Note:** This does a one-way read-only sync from LastPass using an __unofficial__ LastPass API - if you want to manipulate your vault in any way (delete/edit) you must use the [LastPass iOS app][] (requires a LastPass Premium subscription - $12/yr).
 
 **Note:** It stores your accounts in the iOS keychain (*not* the iCloud keychain). Although the keychain is encrypted, there *may* be ways to access it from other apps. Please weigh the risks before using this.
 
