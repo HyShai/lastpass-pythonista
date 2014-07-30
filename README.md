@@ -37,7 +37,10 @@ Example
 ```
 Credits
 =======
-Credit for the reverse engineered LastPass API goes to [konomae][] who did 99.9% of the work on coding the Python version.
+
+Credit for the vast majority of the reverse engineered LastPass API goes to [Dmitry Yakimenko][]
+
+Credit for the Python version of the API goes to [konomae][]
 
 Credit for the adaption of PBKDF to use pbkdf2 instead of simple-pbkdf2 goes to [Ole Moritz][] (and without whom we wouldn't have the awesome Pythonista ;) )
 
@@ -60,3 +63,4 @@ License
   [Ole Moritz]:https://github.com/omz
   [Dwayne C. Litzenberger]:https://github.com/dlitz/python-pbkdf2
   [Pythonista's keychain]:http://omz-software.com/pythonista/docs/ios/keychain.html
+  [Dmitry Yakimenko]:https://github.com/detunized
