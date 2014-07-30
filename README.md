@@ -1,7 +1,7 @@
 LastPass Pythonista
 ===================
 
-Original: [lastpass-python][] (adapted for iOS - [Pythonista][])
+**Original**: [lastpass-python][] (adapted for iOS - [Pythonista][])
 
 
 Uses Pythonista to allow for pseudo x-callback-url functionality for LastPass. It downloads your LastPass vault and stores it in [Pythonista's keychain][]. You can then use Pythonista's powerful scripting coupled with an app such as [Launch Center Pro][] to make the LastPass iOS experience much more bearable.
