@@ -13,7 +13,6 @@ Uses Pythonista to allow for pseudo x-callback-url functionality for LastPass. I
 ### Installation:
 
 * Using <a href="https://github.com/transistor1/shellista">Shellista</a>, type the following commands:
-
     `mkdir lastpass`<br>
     `cd lastpass`<br>
     `git clone https://github.com/HyShai/lastpass-pythonista.git`
