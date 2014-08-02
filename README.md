@@ -14,9 +14,9 @@ Uses Pythonista to allow for pseudo x-callback-url functionality for LastPass. I
 
 * Using <a href="https://github.com/transistor1/shellista">Shellista</a>, type the following commands:
 
-    mkdir lastpass
-    cd lastpass
-    git clone https://github.com/HyShai/lastpass-pythonista.git
+    `mkdir lastpass`
+    `cd lastpass`
+    `git clone https://github.com/HyShai/lastpass-pythonista.git`
 
 Or
 
