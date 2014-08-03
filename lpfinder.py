@@ -4,19 +4,28 @@ welcome_msg = '''This script takes 2 arguments:
 It works best with Launch Center Pro installed.
 https://launchcenterpro.com/q9qmfg'''
 
-import clipboard, console, keychain, sys, ui, webbrowser
+import clipboard, console, keychain, sys, ui, webbrowser, os
 
 try:
     _, account_name, redirect_url = sys.argv
     account_name = account_name.lower()
+    # make a global to be able to access the decrypted blob in `item_selected`
+    accounts_from_blob = None
 except ValueError:
     print(welcome_msg)
     sys.exit()
 
 @ui.in_background
 def item_selected(sender):
+    # I have to refactor this - getting the accounts twice is redundant - I think I'm going to have to make a class and use properties....
     acct = sender.items[sender.selected_row]['title'].split(' - ')
-    pwd = keychain.get_password(acct[0],acct[1])
+    # if using local blob
+    if accounts_from_blob:
+        # what's the pythonic way to do this?
+        pwd = [x.password for x in accounts_from_blob if x.name.lower()==acct[0] and x.username==acct[1]][0]
+    else:
+        pwd = keychain.get_password(acct[0],acct[1])
+        
     clipboard.set(pwd)
     picker.close()
     webbrowser.open(redirect_url)
@@ -26,7 +35,16 @@ def info_tapped(sender):
     row = sender.items[sender.tapped_accessory_row]
     console.alert(row['title'])
 
-services = [ (x[0] + ' - ' + x[1]) for x in keychain.get_services()
+def get_services():
+    if os.path.isfile('.lastpass.blob'):
+        import lastpass
+        accounts_from_blob = lastpass.Vault.open_local('.lastpass.blob')
+        # what's the pythonic way to do this?
+        return [ {x.name, x.username} for x in accounts ]
+    else:
+        return keychain.get_services()
+
+matching_services = [ (x[0] + ' - ' + x[1]) for x in get_services()
                                     if account_name in x[0].lower() ]
 ds = ui.ListDataSource({'title':x,'accessory_type':'detail_button'} for x in services)
 ds.action= item_selected

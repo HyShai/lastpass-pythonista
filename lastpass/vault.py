@@ -12,8 +12,9 @@ class Vault(object):
     # Creates a vault from a locally stored blob
     @classmethod
     def open_local(cls, blob_filename, username, password):
-        # TODO: read the blob here
-        pass
+        import pickle
+        blob = pickle.load(open(blob_filename, "rb"))
+        return cls.open(blob, username, password)
 
     # Creates a vault from a blob object
     @classmethod
