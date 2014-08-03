@@ -37,7 +37,10 @@ def info_tapped(sender):
 
 def get_services():
     if os.path.isfile('.lastpass.blob'):
-        import lastpass
+        import lastpass, keychain
+        email = keychain.get_password('lastpass_email', 'lastpass') or ''
+        password = keychain.get_password('lastpass_master', 'lastpass') or ''
+        email, password = console.login_alert('LastPass login', '', email, password)
         accounts_from_blob = lastpass.Vault.open_local('.lastpass.blob')
         # what's the pythonic way to do this?
         return [ {x.name, x.username} for x in accounts ]
