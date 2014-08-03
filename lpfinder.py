@@ -37,7 +37,7 @@ def info_tapped(sender):
 
 def get_services():
     if os.path.isfile('.lastpass.blob'):
-        import lastpass, keychain
+        import lastpass
         email = keychain.get_password('lastpass_email', 'lastpass') or ''
         password = keychain.get_password('lastpass_master', 'lastpass') or ''
         email, password = console.login_alert('LastPass login', '', email, password)
