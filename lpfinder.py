@@ -46,7 +46,7 @@ def get_services():
 
 matching_services = [ (x[0] + ' - ' + x[1]) for x in get_services()
                                     if account_name in x[0].lower() ]
-ds = ui.ListDataSource({'title':x,'accessory_type':'detail_button'} for x in services)
+ds = ui.ListDataSource({'title':x,'accessory_type':'detail_button'} for x in matching_services)
 ds.action= item_selected
 ds.accessory_action = info_tapped
 
