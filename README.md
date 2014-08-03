@@ -19,7 +19,9 @@ Uses Pythonista to allow for pseudo x-callback-url functionality for LastPass. I
 
 Or
 
-* Download the zip of this repo and sync to Dropbox. Download it to Pythonista using [DropboxFilePicker][] or [DropboxSync][]. Unzip it using [Shellista][].
+* Download the zip of this repo and sync to Dropbox.
+* Download it to Pythonista using [DropboxFilePicker][] or [DropboxSync][].
+* Unzip it using [Shellista][].
 
 ### Usage:
 
