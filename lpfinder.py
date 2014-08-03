@@ -35,7 +35,8 @@ class AccountFinder(object):
 
     def get_password(self, name, username):
         if self.has_blob:
-            return [x.password for x in self.accounts if x.name == name and x.username == username][0]
+            #next((x for x in some_list if match(x)), None)
+            return next((x.password for x in self.accounts if x.name == name and x.username == username), None)
         else:
             return keychain.get_password(name, username)
 
