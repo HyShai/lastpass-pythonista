@@ -21,6 +21,7 @@ Or
 
 * Download the zip of this repo and sync to Dropbox.
 * Download it to Pythonista using [DropboxFilePicker][] or [DropboxSync][].
+* Alternatively, you may download direct to Pythonista using [filedownloader.py][]
 * Unzip it using [Shellista][].
 
 ### Usage:
@@ -70,3 +71,4 @@ License
   [Dwayne C. Litzenberger]:https://github.com/dlitz/python-pbkdf2
   [Pythonista's keychain]:http://omz-software.com/pythonista/docs/ios/keychain.html
   [Dmitry Yakimenko]:https://github.com/detunized
+  [filedownloader.py]:https://gist.github.com/elliospizzaman/89edf288a15fde45682a
