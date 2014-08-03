@@ -6,6 +6,7 @@ https://launchcenterpro.com/q9qmfg'''
 
 import clipboard, console, keychain, sys, ui, webbrowser, os
 
+
 try:
     _, account_name, redirect_url = sys.argv
     account_name = account_name.lower()
@@ -15,6 +16,36 @@ except ValueError:
     print(welcome_msg)
     sys.exit()
 
+
+class AccountFinder(object):
+    def __init__(self, blob):
+        self.accounts = get_services(blob)
+        self.has_blob = (True if blob else False)
+
+    def get_services(self, blob=None):
+        if blob and os.path.isfile(blob):
+            import lastpass
+            email = keychain.get_password('lastpass_email', 'lastpass') or ''
+            password = keychain.get_password('lastpass_master', 'lastpass') or ''
+            email, password = console.login_alert('LastPass login', '', email, password)
+            return [x.name, x.username, x.password 
+                    for x in lastpass.Vault.open_local(blob)]
+        else:
+            return keychain.get_services()
+
+    def get_password(self, name, username):
+        if self.has_blob:
+            return [x.password for x in self.accounts if x.name == name and x.username == username][0]
+        else:
+            return keychain.get_password(name, username)
+
+    def find_matching_accounts(self, account_name):
+        return [(x[0] + ' - ' + x[1]) for x in get_services()
+                if account_name in x[0].lower()]
+
+
+
+
 @ui.in_background
 def item_selected(sender):
     # I have to refactor this - getting the accounts twice is redundant - I think I'm going to have to make a class and use properties....
@@ -22,18 +53,20 @@ def item_selected(sender):
     # if using local blob
     if accounts_from_blob:
         # what's the pythonic way to do this?
-        pwd = [x.password for x in accounts_from_blob if x.name.lower()==acct[0] and x.username==acct[1]][0]
+        pwd = [x.password for x in accounts_from_blob if x.name.lower() == acct[0] and x.username == acct[1]][0]
     else:
-        pwd = keychain.get_password(acct[0],acct[1])
-        
+        pwd = keychain.get_password(acct[0], acct[1])
+
     clipboard.set(pwd)
     picker.close()
     webbrowser.open(redirect_url)
+
 
 @ui.in_background
 def info_tapped(sender):
     row = sender.items[sender.tapped_accessory_row]
     console.alert(row['title'])
+
 
 def get_services():
     if os.path.isfile('.lastpass.blob'):
@@ -43,14 +76,14 @@ def get_services():
         email, password = console.login_alert('LastPass login', '', email, password)
         accounts_from_blob = lastpass.Vault.open_local('.lastpass.blob')
         # what's the pythonic way to do this?
-        return [ {x.name, x.username} for x in accounts ]
+        return [{x.name, x.username} for x in accounts_from_blob]
     else:
         return keychain.get_services()
 
-matching_services = [ (x[0] + ' - ' + x[1]) for x in get_services()
-                                    if account_name in x[0].lower() ]
-ds = ui.ListDataSource({'title':x,'accessory_type':'detail_button'} for x in matching_services)
-ds.action= item_selected
+matching_services = [(x[0] + ' - ' + x[1]) for x in get_services()
+                                    if account_name in x[0].lower()]
+ds = ui.ListDataSource({'title':x, 'accessory_type':'detail_button'} for x in matching_services)
+ds.action = item_selected
 ds.accessory_action = info_tapped
 
 picker = ui.load_view('lpfinder')
