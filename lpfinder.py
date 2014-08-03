@@ -28,20 +28,19 @@ class AccountFinder(object):
             email = keychain.get_password('lastpass_email', 'lastpass') or ''
             password = keychain.get_password('lastpass_master', 'lastpass') or ''
             email, password = console.login_alert('LastPass login', '', email, password)
-            return [x.name, x.username, x.password 
-                    for x in lastpass.Vault.open_local(blob)]
+            return [x.name, x.username, x.password
+                        for x in lastpass.Vault.open_local(blob)]
         else:
             return keychain.get_services()
 
     def get_password(self, name, username):
         if self.has_blob:
-            #next((x for x in some_list if match(x)), None)
             return next((x.password for x in self.accounts if x.name == name and x.username == username), None)
         else:
             return keychain.get_password(name, username)
 
     def find_matching_accounts(self, account_name):
-        return [(x[0] + ' - ' + x[1]) for x in get_services()
+        return [(x[0] + ' - ' + x[1]) for x in self.get_services()
                 if account_name in x[0].lower()]
 
 
@@ -49,7 +48,6 @@ class AccountFinder(object):
 
 @ui.in_background
 def item_selected(sender):
-    # I have to refactor this - getting the accounts twice is redundant - I think I'm going to have to make a class and use properties....
     acct = sender.items[sender.selected_row]['title'].split(' - ')
     # if using local blob
     if accounts_from_blob:
