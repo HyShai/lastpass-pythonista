@@ -35,7 +35,8 @@ else:
         import os
         os.remove('.lastpass.blob')
     except OSError:
-        pass        
+        pass       
+    vault = lastpass.Vault.open(blob,email,password)
     for i in vault.accounts:
         print 'Importing {} - {}'.format(i.name, i.username)
         keychain.set_password(i.name, i.username, i.password)
