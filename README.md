@@ -12,8 +12,10 @@ Uses Pythonista to allow for pseudo x-callback-url functionality for LastPass. I
 
 ### Installation:
 
-* Using [filedownloader.py][], download the zip of this repo: `https://codeload.github.com/HyShai/lastpass-pythonista/zip/master`.
-    * Tap "OK" on the Extract File alert.
+* Using [filedownloader.py][], download the zip of this repo
+    * Set URL to `https://codeload.github.com/HyShai/lastpass-pythonista/zip/master`.
+    * Tap "Download"
+    * When the Extract File alert appears, tap "OK".
 
 Or
 
