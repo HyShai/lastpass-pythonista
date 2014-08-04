@@ -43,7 +43,7 @@ An example Launch Center Pro action is here: https://launchcenterpro.com/q9qmfg
 Example
 =======
 
-<a href="https://www.youtube.com/watch?v=8WmbEWjLWbY" target="_blank"><img src="http://img.youtube.com/vi/8WmbEWjLWbY/0.jpg" alt="LP Example"></a>
+<a href="https://www.youtube.com/watch?v=8WmbEWjLWbY" target="_blank"><img src="http://img.youtube.com/vi/8WmbEWjLWbY/0.jpg" alt="LP Example"></a> Tap this image to see how it works.
 
 ```python
 
