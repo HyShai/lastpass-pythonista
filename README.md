@@ -12,6 +12,11 @@ Uses Pythonista to allow for pseudo x-callback-url functionality for LastPass. I
 
 ### Installation:
 
+* Using [filedownloader.py][], download the zip of this repo: `https://codeload.github.com/HyShai/lastpass-pythonista/zip/master`.
+    * Tap "OK" on the Extract File alert.
+
+Or
+
 * Using <a href="https://github.com/transistor1/shellista">Shellista</a>, type the following commands:<br>
     `mkdir lastpass`<br>
     `cd lastpass`<br>
@@ -21,7 +26,6 @@ Or
 
 * Download the zip of this repo and sync to Dropbox.
 * Download it to Pythonista using [DropboxFilePicker][] or [DropboxSync][].
-* Alternatively, you may download direct to Pythonista using [filedownloader.py][]
 * Unzip it using [Shellista][].
 
 ### Usage:
