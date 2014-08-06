@@ -53,6 +53,7 @@ If you want to use the encrypted blob, you can optionally save your lastpass mas
 
 * Save your email as service=lastpass_email, account=lastpass, password={{your-email}}. 
 * Save your password as service=lastpass_master, account=lastpass, password={{your-password}}. 
+
 The names of the service and account are definite - see [lpfinder.py][] if you want to change them. See [keychain.set_password][]
 
 An example Launch Center Pro action is here: https://launchcenterpro.com/q9qmfg 
