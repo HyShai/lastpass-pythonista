@@ -17,9 +17,7 @@ The advantage to using the encrypted blob is that you account are not saved to t
 
 The advantage to using the `keychain` is that it is a bit faster and you are not prompted for the lastpass master credentials each time that the blob is opened.
 
-If you want to use the encrypted blob: You can save your lastpass master credentials to the keychain for convenience - **though this entails the same risk as above**. Save your email as service=lastpass_email, account=lastpass, password={{your-email}}. Save your email as service=lastpass_master, account=lastpass, password={{your-password}}. The names of the service and account are definite - see [lpfinder.py][] if you want to change them. See [keychain.set_password][]
-
-By default `lpfinder.py` will look for `.lastpass.blob` first and fallback to the `keychain`. If you want to use the `keychain`, run the import again and choose "Save to keychain" when prompted. If you want to switch to the blob run the import again and choose "Don't Save to keychain".
+See below for more.
 
 ### Installation:
 
@@ -48,6 +46,10 @@ Or
 3. Tap the account for which you want the password 
 4. The password will be copied to the clipboard and you will be redirected to the url/app that you passed in
 4. Use `lpimport_api.py` to manually update your accounts (read-only)
+
+If you want to use the encrypted blob: You can save your lastpass master credentials to the keychain for convenience - **though this entails the same risk as above**. Save your email as service=lastpass_email, account=lastpass, password={{your-email}}. Save your email as service=lastpass_master, account=lastpass, password={{your-password}}. The names of the service and account are definite - see [lpfinder.py][] if you want to change them. See [keychain.set_password][]
+
+By default `lpfinder.py` will look for `.lastpass.blob` first and fallback to the `keychain`. If you want to use the `keychain`, run the import again and choose "Save to keychain" when prompted. If you want to switch to the blob run the import again and choose "Don't Save to keychain".
 
 An example Launch Center Pro action is here: https://launchcenterpro.com/q9qmfg 
 
