@@ -15,7 +15,9 @@ There are 2 ways to import your accounts:
 
 The advantage to using the encrypted blob is that you account are not saved to the `keychain`. Although the `keychain` is encrypted, there *may* be ways to access it from other apps. Please weigh the risks before using this. 
 
-The advantage to using the `keychain` is that it is a bit faster and you are not prompted for the lastpass master credentials each time that the blob is opened.
+The advantage to using the `keychain` is that it is a bit faster and you are not prompted for the lastpass master credentials each time that the blob is opened. You should set [`keychain.set_master_password`][] for additional security.
+
+By default `lpfinder.py` will look for `.lastpass.blob` first and fallback to the `keychain`. If you want to use the `keychain`, run the import again and choose "Save to keychain" when prompted. If you want to switch to the blob run the import again and choose "Don't Save to keychain".
 
 See below for more.
 
@@ -47,9 +49,7 @@ Or
 4. The password will be copied to the clipboard and you will be redirected to the url/app that you passed in
 4. Use `lpimport_api.py` to manually update your accounts (read-only)
 
-If you want to use the encrypted blob: You can save your lastpass master credentials to the keychain for convenience - **though this entails the same risk as above**. Save your email as service=lastpass_email, account=lastpass, password={{your-email}}. Save your email as service=lastpass_master, account=lastpass, password={{your-password}}. The names of the service and account are definite - see [lpfinder.py][] if you want to change them. See [keychain.set_password][]
-
-By default `lpfinder.py` will look for `.lastpass.blob` first and fallback to the `keychain`. If you want to use the `keychain`, run the import again and choose "Save to keychain" when prompted. If you want to switch to the blob run the import again and choose "Don't Save to keychain".
+If you want to use the encrypted blob, you can optionally save your lastpass master credentials to the keychain for convenience - **though this entails the same risk as above**. Save your email as service=lastpass_email, account=lastpass, password={{your-email}}. Save your email as service=lastpass_master, account=lastpass, password={{your-password}}. The names of the service and account are definite - see [lpfinder.py][] if you want to change them. See [keychain.set_password][]
 
 An example Launch Center Pro action is here: https://launchcenterpro.com/q9qmfg 
 
@@ -93,3 +93,4 @@ License
   [filedownloader.py]:https://gist.github.com/elliospizzaman/89edf288a15fde45682a
   [keychain.set_password]:http://omz-software.com/pythonista/docs/ios/keychain.html#keychain.set_password
   [lpfinder.py]:https://github.com/HyShai/lastpass-pythonista/blob/master/lpfinder.py#L27
+  [`keychain.set_master_password`]:http://omz-software.com/pythonista/docs/ios/keychain.html#keychain.set_master_password
