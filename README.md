@@ -49,7 +49,7 @@ Or
 4. The password will be copied to the clipboard and you will be redirected to the url/app that you passed in
 4. Use `lpimport_api.py` to manually update your accounts (read-only)
 
-If you want to use the encrypted blob, you can optionally save your lastpass master credentials to the keychain for convenience - **though this entails the same risk as above**. Save your email as service=lastpass_email, account=lastpass, password={{your-email}}. Save your email as service=lastpass_master, account=lastpass, password={{your-password}}. The names of the service and account are definite - see [lpfinder.py][] if you want to change them. See [keychain.set_password][]
+If you want to use the encrypted blob, you can optionally save your lastpass master credentials to the `keychain` for convenience - **though this entails the same risk as above**. Save your email as service=lastpass_email, account=lastpass, password={{your-email}}. Save your email as service=lastpass_master, account=lastpass, password={{your-password}}. The names of the service and account are definite - see [lpfinder.py][] if you want to change them. See [keychain.set_password][]
 
 An example Launch Center Pro action is here: https://launchcenterpro.com/q9qmfg 
 
