@@ -9,6 +9,7 @@ Uses Pythonista to allow for pseudo x-callback-url functionality for LastPass. I
 **Note:** This does a one-way read-only sync from LastPass using an __unofficial__ API - if you want to manipulate your vault in any way (delete/edit) you must use the [LastPass iOS app][] (requires a LastPass Premium subscription - $12/yr).
 
 There are 2 ways to import your accounts:
+
 1. save the encrypted blob locally
 2. save your accounts to the `keychain`
 
