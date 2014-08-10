@@ -16,7 +16,7 @@ There are 2 ways to import your accounts:
 
 The advantage to using the encrypted blob is that you account are not saved to the `keychain`. Although the `keychain` is encrypted, there *may* be ways to access it from other apps. Please weigh the risks before using this. 
 
-The advantage to using the `keychain` is that it is a bit faster and you are not prompted for the lastpass master credentials each time that the blob is opened. You should set `[keychain.set_master_password][]` for additional security.
+The advantage to using the `keychain` is that it is a bit faster and you are not prompted for the lastpass master credentials each time that the blob is opened. You should set [`keychain.set_master_password`][] for additional security.
 
 By default `lpfinder.py` will look for `.lastpass.blob` first and fallback to the `keychain`. If you want to use the `keychain`, run the import again and choose "Save to keychain" when prompted. If you want to switch to the blob run the import again and choose "Don't Save to keychain".
 
