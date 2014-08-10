@@ -97,7 +97,7 @@ License
   [Pythonista's keychain]:http://omz-software.com/pythonista/docs/ios/keychain.html
   [Dmitry Yakimenko]:https://github.com/detunized
   [filedownloader.py]:https://gist.github.com/elliospizzaman/89edf288a15fde45682a
-  [keychain.set_password]:http://omz-software.com/pythonista/docs/ios/keychain.html#keychain.set_password
+  [`keychain.set_password`]:http://omz-software.com/pythonista/docs/ios/keychain.html#keychain.set_password
   [lpfinder.py]:https://github.com/HyShai/lastpass-pythonista/blob/master/lpfinder.py#L27
   [keychain.set_master_password]:http://omz-software.com/pythonista/docs/ios/keychain.html#keychain.set_master_password
   [LastPass iOS app]:https://itunes.apple.com/us/app/lastpass-for-premium-customers/id324613447?mt=8&uo=4&at=11l6hc&ct=fnd
