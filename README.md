@@ -6,7 +6,8 @@ LastPass Pythonista
 
 Uses Pythonista to allow for pseudo x-callback-url functionality for LastPass. It downloads your LastPass vault and stores it in [Pythonista's keychain][]. You can then use Pythonista's powerful scripting coupled with an app such as [Launch Center Pro][] to make the LastPass iOS experience much more bearable.
 
-**Note:** This does a one-way read-only sync from LastPass using an __unofficial__ API. (I think this API requires a LastPass Premium account, I'm still testing. Hopefully, I will find a work around.)
+**Note:** This does a one-way read-only sync from LastPass using an __unofficial__ API - if you want to manipulate your vault in any way (delete/edit) you must use the official [LastPass iOS app][] (requires a LastPass Premium subscription - $12/yr).
+
 
 There are 2 ways to import your accounts:
 
@@ -15,7 +16,7 @@ There are 2 ways to import your accounts:
 
 The advantage to using the encrypted blob is that you account are not saved to the `keychain`. Although the `keychain` is encrypted, there *may* be ways to access it from other apps. Please weigh the risks before using this. 
 
-The advantage to using the `keychain` is that it is a bit faster and you are not prompted for the lastpass master credentials each time that the blob is opened. You should set [`keychain.set_master_password`][] for additional security.
+The advantage to using the `keychain` is that it is a bit faster and you are not prompted for the lastpass master credentials each time that the blob is opened. You should set `[keychain.set_master_password][]` for additional security.
 
 By default `lpfinder.py` will look for `.lastpass.blob` first and fallback to the `keychain`. If you want to use the `keychain`, run the import again and choose "Save to keychain" when prompted. If you want to switch to the blob run the import again and choose "Don't Save to keychain".
 
@@ -98,4 +99,5 @@ License
   [filedownloader.py]:https://gist.github.com/elliospizzaman/89edf288a15fde45682a
   [keychain.set_password]:http://omz-software.com/pythonista/docs/ios/keychain.html#keychain.set_password
   [lpfinder.py]:https://github.com/HyShai/lastpass-pythonista/blob/master/lpfinder.py#L27
-  [`keychain.set_master_password`]:http://omz-software.com/pythonista/docs/ios/keychain.html#keychain.set_master_password
+  [keychain.set_master_password]:http://omz-software.com/pythonista/docs/ios/keychain.html#keychain.set_master_password
+  [LastPass iOS app]:https://itunes.apple.com/us/app/lastpass-for-premium-customers/id324613447?mt=8&uo=4&at=11l6hc&ct=fnd

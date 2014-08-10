@@ -65,7 +65,7 @@ class Fetcher(object):
     @classmethod
     def request_login(cls, username, password, key_iteration_count, multifactor_password=None,  trusted_device=None, web_client=requests):
         body = {
-            'method': 'iphone',
+            'method': 'mobile',
             'web': 1,
             'xml': 1,
             'username': username,
@@ -77,7 +77,7 @@ class Fetcher(object):
             body['otp'] = multifactor_password
 
         if trusted_device:
-            body['uuid'] = trusted_device
+            body['imei'] = trusted_device
             if multifactor_password:
                 body['trustlabel'] = 'PythonistaLP - %s' % trusted_device
         
