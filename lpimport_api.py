@@ -14,7 +14,9 @@ try:
 except lastpass.LastPassIncorrectGoogleAuthenticatorCodeError as e:
 	googleauth = None
 	if not device:
+		console.hud_alert(message='You will now be redirected to Google Authenticator',duration=1)
 		webbrowser.open('otpauth:')
+		console.hud_alert(message='Enter the 2FA code',duration=5.0)
 		googleauth = console.input_alert('GoogleAuth', '', clipboard.get())
 		trusted = console.alert('Trusted', 'Save this device as trusted?', 'Save', 'Don\'t Save', hide_cancel_button=True)
 		if not trusted:
@@ -26,11 +28,11 @@ save_vault = console.alert("Save to keychain", "Would you like to save your vaul
 if not save_vault:
 	save_blob = console.alert("Save blob local", "Would you like to save the encrypted blob locally?", "Don't Save", "Save", hide_cancel_button=True)
 	if save_blob:
-		import pickle
+		import pickle, os
 		print "Saving blob to .lastpass.blob"
 		FILENAME = os.path.join(os.getcwd(),'.lastpass.blob')
 		pickle.dump(blob, open(FILENAME,'wb'))
-		print 'Save Done'
+		console.hud_alert('Saved blob')
 else:
 	try:
 		# don't want both the blob and the keychain - avoids conflicts
@@ -43,4 +45,4 @@ else:
 		print 'Importing {} - {}'.format(i.name, i.username)
 		keychain.set_password(i.name, i.username, i.password)
 
-	print 'Import done'
+	console.hud_alert('Import done')
