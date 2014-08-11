@@ -14,7 +14,7 @@ There are 2 ways to import your accounts:
 1. save the encrypted blob locally
 2. save your accounts to the `keychain`
 
-The advantage to using the encrypted blob is that you account are not saved to the `keychain`. Although the `keychain` is encrypted, there *may* be ways to access it from other apps. Please weigh the risks before using this. 
+The advantage to using the encrypted blob is that your accounts are not saved to the `keychain`. Although the `keychain` is encrypted, there *may* be ways to access it from other apps. Please weigh the risks before using this. 
 
 The advantage to using the `keychain` is that it is a bit faster and you are not prompted for the lastpass master credentials each time that the blob is opened. You should set [`keychain.set_master_password`][] for additional security.
 
