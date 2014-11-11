@@ -39,7 +39,7 @@ class AccountFinder(object):
             return keychain.get_password(name, username)
 
     def find_matching_accounts(self, account_name):
-        return [(x[0] + ' - ' + x[1]) for x in self.get_services()
+        return [(x[0] + ' - ' + x[1]) for x in self.accounts
             if account_name in x[0].lower()]
 
 
